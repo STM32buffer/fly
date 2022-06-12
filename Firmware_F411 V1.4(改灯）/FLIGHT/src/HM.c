@@ -30,7 +30,7 @@ float HM_Update1(HM* hm, const float error,float actualAnglePITCH,float actualAn
 	else {hm->sign_s=0;} 	//符号函数
 	
 	hm->f = Kp_f*( hm->P_deriv * hm->Y_deriv * 0.8266f - hm->P_deriv*Wr*0.08f);//f函数
-	hm->u=0.0075f*( hm->f - hm->R_deriv - hm->s );					//控制输入
+	hm->u=0.0075f*( 60*hm->f - 500*hm->R_deriv - hm->s - hm->sign_s);					//控制输入
 	
 	hm->prevError=hm->error;
 	hm->pre_actulangle_pitch=hm->actulangle_pitch;
@@ -48,8 +48,8 @@ void HMInit_roll(HM* hm, const float desired, const float dt)
 	hm->E_deriv=0;
 	hm->E_desired =0.0f;
 	hm->f      =0.0f;
-	hm->kd    =1.0f;
-	hm->kp    =1;
+	hm->kd    =60.0f;
+	hm->kp    =500.0f;
 	hm->out =0;
 	hm->prevError=0;
 	hm->pre_actulangle_pitch=0;

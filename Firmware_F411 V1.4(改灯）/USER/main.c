@@ -17,6 +17,7 @@
 TaskHandle_t startTaskHandle;
 static void startTask(void *arg);
 char PIDorHM=1;
+char DOUorSIN=1;
 int main()
 {
     systemInit();			/*µ×²ãÓ²¼þ³õÊ¼»¯*/

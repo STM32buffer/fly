@@ -432,8 +432,11 @@ static u8 atkpCheckSum(atkp_t *packet)
 	return sum;
 }
 extern char PIDorHM;
+extern char DOUorSIN;
+float kk;
 static void atkpReceiveAnl(atkp_t *anlPacket)
 {
+	kk= pidAngleRoll.kp;
 	if(anlPacket->msgID	== DOWN_COMMAND)
 	{
 		switch(anlPacket->data[0])
@@ -480,7 +483,7 @@ static void atkpReceiveAnl(atkp_t *anlPacket)
 					   pidRateYaw.kp, pidRateYaw.ki, pidRateYaw.kd 
 				   );
 			sendPid(2, pidAngleRoll.kp,PIDorHM, pidAngleRoll.kd,
-					   pidAnglePitch.kp, pidAnglePitch.ki, pidAnglePitch.kd,
+					   pidAnglePitch.kp, DOUorSIN, pidAnglePitch.kd,
 					   pidAngleYaw.kp, pidAngleYaw.ki, pidAngleYaw.kd 
 				   );
 			sendPid(3, pidVZ.kp, pidVZ.ki, pidVZ.kd,
@@ -547,9 +550,10 @@ static void atkpReceiveAnl(atkp_t *anlPacket)
 	{
 		pidAngleRoll.kp  = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
 		PIDorHM  = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+		pidAngleRoll.ki=0;
 		pidAngleRoll.kd  = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
 		pidAnglePitch.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
-		pidAnglePitch.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+		DOUorSIN = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
 		pidAnglePitch.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
 		pidAngleYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
 		pidAngleYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));

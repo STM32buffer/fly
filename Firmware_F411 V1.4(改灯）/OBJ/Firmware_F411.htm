@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Firmware_F411.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Firmware_F411.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue May 24 20:50:41 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jun 08 18:15:48 2022
 <BR><P>
 <H3>Maximum Stack Usage =        728 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1157,7 +1157,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControlInit
 </UL>
 
-<P><STRONG><a name="[21b]"></a>HM_Update1</STRONG> (Thumb, 466 bytes, Stack size 16 bytes, hm.o(i.HM_Update1))
+<P><STRONG><a name="[21b]"></a>HM_Update1</STRONG> (Thumb, 486 bytes, Stack size 16 bytes, hm.o(i.HM_Update1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HM_Update1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
@@ -3401,7 +3401,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
 </UL>
 
-<P><STRONG><a name="[224]"></a>attitudeRatePID</STRONG> (Thumb, 114 bytes, Stack size 24 bytes, attitude_pid.o(i.attitudeRatePID))
+<P><STRONG><a name="[224]"></a>attitudeRatePID</STRONG> (Thumb, 158 bytes, Stack size 24 bytes, attitude_pid.o(i.attitudeRatePID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = attitudeRatePID
 </UL>
 <BR>[Calls]<UL><LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
@@ -4611,7 +4611,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[344]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControl
 </UL>
 
-<P><STRONG><a name="[2e3]"></a>powerControl</STRONG> (Thumb, 272 bytes, Stack size 24 bytes, power_control.o(i.powerControl))
+<P><STRONG><a name="[2e3]"></a>powerControl</STRONG> (Thumb, 360 bytes, Stack size 24 bytes, power_control.o(i.powerControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = powerControl &rArr; motorsSetRatio
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motorsSetRatio
@@ -7659,7 +7659,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
 </UL>
 
-<P><STRONG><a name="[1f8]"></a>atkpReceiveAnl</STRONG> (Thumb, 3466 bytes, Stack size 48 bytes, atkp.o(i.atkpReceiveAnl))
+<P><STRONG><a name="[1f8]"></a>atkpReceiveAnl</STRONG> (Thumb, 3516 bytes, Stack size 48 bytes, atkp.o(i.atkpReceiveAnl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = atkpReceiveAnl &rArr; remoterCtrlProcess &rArr; sendMsgACK &rArr; radiolinkSendPacketBlocking &rArr; xQueueGenericSend &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetConfigParamPID

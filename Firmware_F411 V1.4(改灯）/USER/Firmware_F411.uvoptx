@@ -237,6 +237,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>PIDorHM</ItemText>
         </Ww>
+        <Ww>
+          <count>17</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>DOUorSIN</ItemText>
+        </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>kk</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
