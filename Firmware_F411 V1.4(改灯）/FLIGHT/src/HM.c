@@ -25,9 +25,9 @@ float HM_Update1(HM* hm, const float error,float actualAnglePITCH,float actualAn
 	if(Wr>50)Wr=50;																//Wr限幅
 	if(Wr<-50) Wr=-50;
 	
-	if(hm->s>0){hm->sign_s=1;}
-	else if(hm->s<0){hm->sign_s=-1;}
-	else {hm->sign_s=0;} 	//符号函数
+	if(hm->s>500){hm->sign_s=1;}
+	else if(hm->s<-500){hm->sign_s=-1;}
+	else {hm->sign_s=hm->s/500;} 	//饱和函数
 	
 	hm->f = Kp_f*( hm->P_deriv * hm->Y_deriv * 0.8266f - hm->P_deriv*Wr*0.08f);//f函数
 	hm->u=0.0075f*( 60*hm->f - 500*hm->R_deriv - hm->s - hm->sign_s);					//控制输入

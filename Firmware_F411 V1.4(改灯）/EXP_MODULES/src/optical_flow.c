@@ -353,8 +353,8 @@ bool getOpFlowData(state_t *state, float dt)
 		opFlow.pixComp[X] = 480.f * tanPitch;	/*像素补偿，负方向*/
 		opFlow.pixComp[Y] = 480.f * tanRoll;
 		opFlow.pixValid[X] = (opFlow.pixSum[X] + opFlow.pixComp[X]);	/*实际输出像素*/
-		opFlow.pixValid[Y] = (opFlow.pixSum[Y] + opFlow.pixComp[Y]);		
-		
+		opFlow.pixValid[Y] = (opFlow.pixSum[Y] + opFlow.pixComp[Y]);	
+				
 		if(height < 0.05f)	/*光流测量范围大于5cm*/
 		{
 			coeff = 0.0f;
