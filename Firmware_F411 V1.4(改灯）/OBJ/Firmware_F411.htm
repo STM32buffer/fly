@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Firmware_F411.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Firmware_F411.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Jun 14 11:52:43 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jun 15 13:46:49 2022
 <BR><P>
 <H3>Maximum Stack Usage =        728 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -416,17 +416,13 @@ Global Symbols
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[9b]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
-<BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
+<P><STRONG><a name="[9b]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
 <P><STRONG><a name="[9c]"></a>__aeabi_drsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -513,7 +509,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
-<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
 <LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detecTumbled
 </UL>
 
@@ -1157,7 +1152,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControlInit
 </UL>
 
-<P><STRONG><a name="[21b]"></a>HM_Update1</STRONG> (Thumb, 502 bytes, Stack size 16 bytes, hm.o(i.HM_Update1))
+<P><STRONG><a name="[21b]"></a>HM_Update1</STRONG> (Thumb, 510 bytes, Stack size 16 bytes, hm.o(i.HM_Update1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HM_Update1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
@@ -3353,14 +3348,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.startTask)
 </UL>
-<P><STRONG><a name="[219]"></a>attitudeAnglePID</STRONG> (Thumb, 290 bytes, Stack size 48 bytes, attitude_pid.o(i.attitudeAnglePID))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = attitudeAnglePID &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[219]"></a>attitudeAnglePID</STRONG> (Thumb, 296 bytes, Stack size 32 bytes, attitude_pid.o(i.attitudeAnglePID))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = attitudeAnglePID &rArr; HM_Update1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HM_Update1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[344]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControl

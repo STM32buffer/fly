@@ -25,6 +25,9 @@ typedef struct
 	float f;
 	float u;
 	float dt;
+	float Kout;
+	float Dout;
+	
 } HM;
 void HMInit_roll(HM* pid, const float desired, const float dt);
 float HM_Update1(HM* hm, const float error,float actualAnglePITCH,float actualAngleYAW,float actualAngleROW);

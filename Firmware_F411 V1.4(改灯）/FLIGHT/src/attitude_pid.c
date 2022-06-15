@@ -73,7 +73,7 @@ bool attitudeControlTest()
 float V_roll,V_roll_H;
 extern char PIDorHM;
 extern char DOUorSIN;
-float roll_out,roll_out1;
+float roll_out,roll_out1,roll_out2;
 void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *output)	/* 角速度环PID */
 {
 	if(DOUorSIN==1){
@@ -86,15 +86,21 @@ void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *outpu
 	output->pitch = pidOutLimit(pidUpdate(&pidRatePitch, desiredRate->pitch - actualRate->y));
 	output->yaw = pidOutLimit(pidUpdate(&pidRateYaw, desiredRate->yaw - actualRate->z));
 }
-
+float Deriv,mError=0,mPError=0;
 void attitudeAnglePID(attitude_t *actualAngle,attitude_t *desiredAngle,attitude_t *outDesiredRate)	/* 角度环PID */
 {
 	if(PIDorHM==1){
 	outDesiredRate->roll = pidUpdate(&pidAngleRoll, desiredAngle->roll - actualAngle->roll);
+		
+		
+		
 	roll_out=	outDesiredRate->roll;
+	roll_out2=outDesiredRate->roll;
 	}
 	if(PIDorHM==0){
-	outDesiredRate->roll=HM_Update1(&HMAngleRoll,actualAngle->roll-desiredAngle->roll,actualAngle->pitch,actualAngle->yaw,actualAngle->roll)*240-14.5;
+	Deriv=pidUpdate(&pidAngleRoll, desiredAngle->roll - actualAngle->roll);
+	Deriv=pidAngleRoll.outD;
+	outDesiredRate->roll=HM_Update1(&HMAngleRoll,actualAngle->roll-desiredAngle->roll,actualAngle->pitch,actualAngle->yaw,actualAngle->roll);
 	roll_out=outDesiredRate->roll;}
 	
 	outDesiredRate->pitch = pidUpdate(&pidAnglePitch, desiredAngle->pitch - actualAngle->pitch);
