@@ -58,7 +58,6 @@ float pidUpdate(PidObject* pid, const float error)
 	pid->outD = pid->kd * pid->deriv;
 
 	output = pid->outP + pid->outI + pid->outD;
-	
 	//Êä³öÏŞ·ù
 	if (pid->outputLimit != 0)
 	{

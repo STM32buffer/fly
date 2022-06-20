@@ -102,7 +102,7 @@ void imuComputeRotationMatrix(void)
     rMat[2][1] = 2.0f * (q2q3 - -q0q1);
     rMat[2][2] = 1.0f - 2.0f * q1q1 - 2.0f * q2q2;
 }
-
+extern  char XorT ;
 void imuUpdate(Axis3f acc, Axis3f gyro, state_t *state , float dt)	/*数据融合 互补滤波*/
 {
 	float normalise;
@@ -163,10 +163,18 @@ void imuUpdate(Axis3f acc, Axis3f gyro, state_t *state , float dt)	/*数据融合 互
 	 P = -asinf(rMat[2][0]) * RAD2DEG; 
 	 R = atan2f(rMat[2][1], rMat[2][2]) * RAD2DEG;
 	 Y = atan2f(rMat[1][0], rMat[0][0]) * RAD2DEG;
-	
-	state->attitude.pitch = 0.707f*P+0.707f*R;
-	state->attitude.roll  =	-0.707f*P+0.707f*R;
-	state->attitude.yaw   = Y;
+	if(XorT==1)
+	{
+		state->attitude.pitch = 0.707f*P+0.707f*R;
+		state->attitude.roll  =	-0.707f*P+0.707f*R;
+		state->attitude.yaw   = Y;
+	}
+		if(XorT==0)
+	{
+		state->attitude.pitch = P;
+		state->attitude.roll  =	R;
+		state->attitude.yaw   = Y;
+	}
 	if (!isGravityCalibrated)	/*未校准*/
 	{		
 //		accBuf[0] = tempacc.x* rMat[0][0] + tempacc.y * rMat[0][1] + tempacc.z * rMat[0][2];	/*accx*/

@@ -48,14 +48,25 @@ u16 limitThrust(int value)
 }
 s16 mmm1,mmm2,mmm3,mmm4;
 s16 m1,m2,m3,m4;
+extern  char XorT ;
 void powerControl(control_t *control)	/*功率输出控制*/
 {
 	s16 r = control->roll / 2.0f;
 	s16 p = control->pitch / 2.0f;
-	motorPWM.m1 = limitThrust(control->thrust - p + control->yaw);
-	motorPWM.m2 = limitThrust(control->thrust - r - control->yaw);
-	motorPWM.m3 = limitThrust(control->thrust + p + control->yaw);
-	motorPWM.m4 = limitThrust(control->thrust + r - control->yaw);	
+	if(XorT==1)
+	{
+		motorPWM.m1 = limitThrust(control->thrust - p + control->yaw);
+		motorPWM.m2 = limitThrust(control->thrust - r  - control->yaw);
+		motorPWM.m3 = limitThrust(control->thrust + p + control->yaw);
+		motorPWM.m4 = limitThrust(control->thrust + r  - control->yaw);	
+	}
+	if(XorT==0)
+	{
+		motorPWM.m1 = limitThrust(control->thrust - r - p + control->yaw);
+		motorPWM.m2 = limitThrust(control->thrust - r + p - control->yaw);
+		motorPWM.m3 = limitThrust(control->thrust + r + p + control->yaw);
+		motorPWM.m4 = limitThrust(control->thrust + r - p - control->yaw);	
+	}
 	m1=motorPWM.m1;
 	m2=motorPWM.m2;
 	m3=motorPWM.m3;

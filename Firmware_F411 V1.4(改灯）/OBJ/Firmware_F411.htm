@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Firmware_F411.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Firmware_F411.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jun 15 13:46:49 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Mon Jun 20 21:38:03 2022
 <BR><P>
 <H3>Maximum Stack Usage =        728 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3580,7 +3580,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[229]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_xms
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 <LI><a href="#[36e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vl53IICWaitAck
 <LI><a href="#[370]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vl53IICStop
 <LI><a href="#[36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vl53IICStart
@@ -3590,6 +3589,7 @@ Global Symbols
 <LI><a href="#[368]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vl53IICAck
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerRead
+<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 </UL>
 
 <P><STRONG><a name="[229]"></a>delay_xms</STRONG> (Thumb, 24 bytes, Stack size 12 bytes, delay.o(i.delay_xms))
@@ -3984,7 +3984,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionEstimate
 </UL>
 
-<P><STRONG><a name="[28b]"></a>imuUpdate</STRONG> (Thumb, 972 bytes, Stack size 128 bytes, sensfusion6.o(i.imuUpdate))
+<P><STRONG><a name="[28b]"></a>imuUpdate</STRONG> (Thumb, 998 bytes, Stack size 128 bytes, sensfusion6.o(i.imuUpdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = imuUpdate &rArr; calBaseAcc &rArr; ledseqRun &rArr; runLedseq &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imuComputeRotationMatrix
@@ -4473,9 +4473,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = opticalFlowTask &rArr; readMotion &rArr; spiExchange &rArr; xQueueGenericReceive &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getSysTickCnt
-<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 <LI><a href="#[2d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspend
 <LI><a href="#[2d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
+<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> optical_flow.o(i.opticalFlowInit)
 </UL>
@@ -4604,7 +4604,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[344]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControl
 </UL>
 
-<P><STRONG><a name="[2e3]"></a>powerControl</STRONG> (Thumb, 360 bytes, Stack size 24 bytes, power_control.o(i.powerControl))
+<P><STRONG><a name="[2e3]"></a>powerControl</STRONG> (Thumb, 598 bytes, Stack size 24 bytes, power_control.o(i.powerControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = powerControl &rArr; motorsSetRatio
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motorsSetRatio
@@ -4981,9 +4981,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerRead
+<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 </UL>
 
 <P><STRONG><a name="[325]"></a>spiEndTransaction</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, spi.o(i.spiEndTransaction))
@@ -4991,9 +4991,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerRead
+<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 </UL>
 
 <P><STRONG><a name="[324]"></a>spiExchange</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, spi.o(i.spiExchange))
@@ -5006,9 +5006,9 @@ Global Symbols
 <LI><a href="#[340]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerWrite
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerRead
+<LI><a href="#[2d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readMotion
 </UL>
 
 <P><STRONG><a name="[e3]"></a>spiTxDmaIsr</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, spi.o(i.spiTxDmaIsr))
@@ -7652,7 +7652,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
 </UL>
 
-<P><STRONG><a name="[1f8]"></a>atkpReceiveAnl</STRONG> (Thumb, 3516 bytes, Stack size 48 bytes, atkp.o(i.atkpReceiveAnl))
+<P><STRONG><a name="[1f8]"></a>atkpReceiveAnl</STRONG> (Thumb, 3524 bytes, Stack size 48 bytes, atkp.o(i.atkpReceiveAnl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = atkpReceiveAnl &rArr; remoterCtrlProcess &rArr; sendMsgACK &rArr; radiolinkSendPacketBlocking &rArr; xQueueGenericSend &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resetConfigParamPID
